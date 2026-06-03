@@ -1,0 +1,7 @@
+.sepration {
+  width: 2px;
+  height: 100vh;
+  background-color: var(--border-color);
+  margin: 0 12px;
+  transition: background-color 0.3s ease;
+}

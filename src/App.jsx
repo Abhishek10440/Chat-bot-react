@@ -13,7 +13,7 @@ function App() {
         {
           id: 1,
           role: 'assistant',
-          text: 'Hello! Ask me anything and Gemini will respond.',
+          text: 'Hello! Ask me anything .',
         },
       ],
       createdAt: new Date(),
@@ -54,6 +54,16 @@ function App() {
       });
 
       const assistantText = response.text || "No response received.";
+      await fetch("http://localhost:5000/chat", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    question: prompt,
+    answer: assistantText,
+  }),
+});
 
       setChats((prev) =>
         prev.map((chat) =>
